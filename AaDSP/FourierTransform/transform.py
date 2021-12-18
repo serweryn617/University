@@ -1,4 +1,6 @@
 # Periodic signal expansion into fourier series
+# Input to the program is one period of a sampled signal
+# Number of samples doesn't matter, but they have to be evenly spaced
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -46,6 +48,7 @@ vals = np.subtract(vals, mean_val)
 a_coeff = []
 b_coeff = []
 
+# Simplest integral approximation
 for k in range(1, num_coeff + 1):
     a_coeff.append(2 / period * Δ * np.sum(np.multiply(vals, np.cos(k*ω*args))))
     b_coeff.append(2 / period * Δ * np.sum(np.multiply(vals, np.sin(k*ω*args))))
